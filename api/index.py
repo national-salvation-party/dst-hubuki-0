@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/')
 def attack():
     targreq=request.Request(os.getenv('TARGET_URL'))
-    for i in range(3):
+    for i in range(int(os.getenv('NUM_REQUESTS'))):
         response=request.urlopen(targreq)
         #print(response)
     return render_template('index.html')
